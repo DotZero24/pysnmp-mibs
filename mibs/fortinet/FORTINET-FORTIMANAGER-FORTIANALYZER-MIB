@@ -2029,7 +2029,7 @@ fmSystemObjectGroup OBJECT-GROUP
                   fmSysLicGbDayWeekAvg, fmSysDiskNumber,
                   fmSysDiskEntName,     fmSysDiskEntUsage,
                   fmSysDiskEntCapacity, fmSysDiskEntIOUtil,
-                  fmSysLogForwardName,  fmSysLogForwardNumber,
+                  fmSysLogForwardName,  fmSysLogForwardNumber, 
                   fmSysLogForwardRate }
     STATUS      current
     DESCRIPTION

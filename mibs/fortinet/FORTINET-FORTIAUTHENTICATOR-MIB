@@ -314,21 +314,21 @@ facRadiusProxyOutTotal  OBJECT-TYPE
 	DESCRIPTION     "Number of Radius accounting proxy requests sent since startup"
 	::= { facAuth 25 }
 
-facFssoUserCount  OBJECT-TYPE
+facFssoUserCount  OBJECT-TYPE 
 	SYNTAX          FnIndex
 	MAX-ACCESS      read-only
 	STATUS          current
 	DESCRIPTION     "Number of signed-in fsso users"
 	::= { facAuth 26 }
 
-facFssoUserRemaining  OBJECT-TYPE
+facFssoUserRemaining  OBJECT-TYPE 
 	SYNTAX          FnIndex
 	MAX-ACCESS      read-only
 	STATUS          current
 	DESCRIPTION     "Number of fsso users can still signed in before reaching the table limit"
 	::= { facAuth 27 }
 
-facRaidStatus  OBJECT-TYPE
+facRaidStatus  OBJECT-TYPE 
 	SYNTAX          INTEGER {
 	                    none(0),     -- no raid detected or status unknown
 	                    ok(1),
@@ -418,7 +418,7 @@ facSystemConformanceGroup  OBJECT-GROUP
 	                  facAuthUserCount, facAuthGroupCount, facFortiTokenCount,
 	                  facAuthUsersRemaining, facAuthGroupRemaining, facFortiTokenRemaining,
 	                  facRadiusNasCount, facRadiusNasRemaining, facUserCertificateCount,
-	                  facRadiusLoginsTotal, facRadiusLogins5Mins, facRadiusFailuresTotal,
+	                  facRadiusLoginsTotal, facRadiusLogins5Mins, facRadiusFailuresTotal, 
 	                  facRadiusFailures5Mins, facRadiusAccountingTotal, facRadiusAccounting5Mins,
 	                  facLdapLoginsTotal, facLdapLogins5Mins, facLdapFailuresTotal,
 	                  facLdapFailures5Mins, facAuthEventsTotal, facAuthEvents5Mins,
@@ -478,3 +478,4 @@ fac8hf           OBJECT IDENTIFIER ::= { facModel  806 }
 
 
 END
+

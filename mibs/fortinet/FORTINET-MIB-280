@@ -12,7 +12,7 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 	IMPORTS
 		DisplayString
 			FROM SNMPv2-TC
-		MODULE-IDENTITY, OBJECT-TYPE, Integer32, Gauge32,
+		MODULE-IDENTITY, OBJECT-TYPE, Integer32, Gauge32, 
 		enterprises, IpAddress
 			FROM SNMPv2-SMI;
 
@@ -20,16 +20,16 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 	-- Textual conventions --
 	--
 
-	FnBoolState ::= INTEGER {
+	FnBoolState ::= INTEGER { 
 		disabled ( 1 ),
 		enabled  ( 2 )
-	}
+	} 
 
 	FnIndex ::= INTEGER (
 		0 .. 2147483647
 	)
 
-	FnOpMode ::= INTEGER {
+	FnOpMode ::= INTEGER { 
 		nat         ( 1 ),
 		transparent ( 2 )
 	}
@@ -40,7 +40,7 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 		active-passive ( 3 )
 	}
 
-	FnHaSchedule ::= INTEGER {
+	FnHaSchedule ::= INTEGER { 
 		none                 ( 1 ),
 		hub                  ( 2 ),
 		least-connections    ( 3 ),
@@ -49,36 +49,36 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 		random               ( 6 ),
 		ip-based             ( 7 ),
 		ip-port-based        ( 8 )
-	}
+	} 
 
-	FnAdminPerm ::= INTEGER {
+	FnAdminPerm ::= INTEGER { 
 		super-admin  ( 255 ),
 		domain-admin ( 15 ),
 		write-admin  ( 1 ),
 		read-admin   ( 0 )
-	}
+	} 
 
-	FnUserAuth ::= INTEGER {
+	FnUserAuth ::= INTEGER { 
 		local           ( 1 ),
 		radius-single   ( 2 ),
 		radius-multiple ( 3 ),
 		ldap            ( 4 )
-	}
+	} 
 
 
 	FnIfAddrMode ::= INTEGER  {
 		static ( 1 )
 		-- fixme --
-	}
+	} 
 
 	FnSessProto ::= INTEGER  {
 		ip   ( 0 ) ,
 		icmp ( 1 ) ,
 		igmp ( 2 ) ,
 		ipip ( 4 ) ,
-		tcp  ( 6 ) ,
+		tcp  ( 6 ) , 
 		egp  ( 8 ) ,
-		pup  ( 12 ) ,
+		pup  ( 12 ) ,				
 		udp  ( 17 ) ,
 		idp  ( 22 ) ,
 		ipv6 ( 41 ) ,
@@ -125,28 +125,28 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 		::= { fnSystem    1 }
 
 	fnSysSerial         OBJECT-TYPE
-		SYNTAX          DisplayString  ( SIZE ( 0 .. 32  ) )
+		SYNTAX          DisplayString  ( SIZE ( 0 .. 32  ) ) 
 		MAX-ACCESS      read-only
 		STATUS          current
 		DESCRIPTION     "Device serial number"
 		::= { fnSystem    2 }
 
 	fnSysVersion        OBJECT-TYPE
-		SYNTAX          DisplayString  ( SIZE ( 0 .. 128 ) )
+		SYNTAX          DisplayString  ( SIZE ( 0 .. 128 ) ) 
 		MAX-ACCESS      read-only
 		STATUS          current
 		DESCRIPTION     "Device firmware version"
 		::= { fnSystem    3 }
 
 	fnSysVersionAv      OBJECT-TYPE
-		SYNTAX          DisplayString  ( SIZE ( 0 .. 128 ) )
+		SYNTAX          DisplayString  ( SIZE ( 0 .. 128 ) ) 
 		MAX-ACCESS      read-only
 		STATUS          current
 		DESCRIPTION     "Antivirus DB version"
 		::= { fnSystem    4 }
 
 	fnSysVersionNids    OBJECT-TYPE
-		SYNTAX          DisplayString  ( SIZE ( 0 .. 128 ) )
+		SYNTAX          DisplayString  ( SIZE ( 0 .. 128 ) ) 
 		MAX-ACCESS      read-only
 		STATUS          current
 		DESCRIPTION     "NIDS DB version"
@@ -221,7 +221,7 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 		SYNTAX          FnBoolState
 		MAX-ACCESS      read-only
 		STATUS          current
-		DESCRIPTION     "Status of an automatic configuration
+		DESCRIPTION     "Status of an automatic configuration 
 		                 synchronization"
 		::= { fnHa        4 }
 
@@ -537,7 +537,7 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 		::= { fnVdEntry   2 }
 
 	-- fnIp
-
+	
 	fnIpSessTable       OBJECT-TYPE
         	SYNTAX      SEQUENCE OF FnIpSessEntry
 	        MAX-ACCESS  not-accessible
@@ -564,7 +564,7 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 		    fnIpSessExp		Counter32
         	}
 
-	fnIpSessIndex	OBJECT-TYPE
+	fnIpSessIndex	OBJECT-TYPE	
 		SYNTAX      FnIndex
 		MAX-ACCESS  read-only
 		STATUS      current
@@ -572,42 +572,42 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
                 	     an IP session"
 		::=  { fnIpSessEntry  1 }
 
-	fnIpSessProto	OBJECT-TYPE
+	fnIpSessProto	OBJECT-TYPE	
 		SYNTAX      FnSessProto
 		MAX-ACCESS  read-only
 		STATUS      current
 		DESCRIPTION "The protocol of the connection"
 		::=  { fnIpSessEntry  2 }
 
-	fnIpSessFromAddr	OBJECT-TYPE
+	fnIpSessFromAddr	OBJECT-TYPE	
 		SYNTAX      IpAddress
 		MAX-ACCESS  read-only
 		STATUS      current
 		DESCRIPTION "Source IP address"
 		::=  { fnIpSessEntry  3 }
 
-	fnIpSessFromPort	OBJECT-TYPE
+	fnIpSessFromPort	OBJECT-TYPE	
 		SYNTAX      INTEGER  ( 0 .. 65535  )
 		MAX-ACCESS  read-only
 		STATUS      current
 		DESCRIPTION "Source Port number"
 		::=  { fnIpSessEntry  4 }
 
-	fnIpSessToAddr	OBJECT-TYPE
+	fnIpSessToAddr	OBJECT-TYPE	
 		SYNTAX      IpAddress
 		MAX-ACCESS  read-only
 		STATUS      current
 		DESCRIPTION "Destination IP address"
 		::=  { fnIpSessEntry  5 }
 
-	fnIpSessToPort	OBJECT-TYPE
+	fnIpSessToPort	OBJECT-TYPE	
 		SYNTAX      INTEGER  ( 0 .. 65535  )
 		MAX-ACCESS  read-only
 		STATUS      current
 		DESCRIPTION "Destination Port number"
 		::=  { fnIpSessEntry  6 }
 
-	fnIpSessExp	OBJECT-TYPE
+	fnIpSessExp	OBJECT-TYPE	
 		SYNTAX      Counter32
 		MAX-ACCESS  read-only
 		STATUS      current
@@ -615,7 +615,7 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 		::=  { fnIpSessEntry  7 }
 
 	--  fnVpn
-
+	
 	fnVpnDialupTable       OBJECT-TYPE
         	SYNTAX      SEQUENCE OF FnVpnDialupEntry
 	        MAX-ACCESS  not-accessible
@@ -643,7 +643,7 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 --		    fnVpnDialupDstMask		IpAddress
         	}
 
-	fnVpnDialupIndex	OBJECT-TYPE
+	fnVpnDialupIndex	OBJECT-TYPE	
 		SYNTAX      FnIndex
 		MAX-ACCESS  read-only
 		STATUS      current
@@ -651,49 +651,49 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
                 	     an VPN dialup peer"
 		::=  { fnVpnDialupEntry  1 }
 
-	fnVpnDialupGateway	OBJECT-TYPE
+	fnVpnDialupGateway	OBJECT-TYPE	
 		SYNTAX      IpAddress
 		MAX-ACCESS  read-only
 		STATUS      current
 		DESCRIPTION "Remote gateway IP address"
 		::=  { fnVpnDialupEntry  2 }
 
-	fnVpnDialupLifetime	OBJECT-TYPE
+	fnVpnDialupLifetime	OBJECT-TYPE	
 		SYNTAX      Integer32
 		MAX-ACCESS  read-only
 		STATUS      current
 		DESCRIPTION "Tunnel life time (seconds)"
 		::=  { fnVpnDialupEntry  3 }
 
-	fnVpnDialupTimeout	OBJECT-TYPE
+	fnVpnDialupTimeout	OBJECT-TYPE	
 		SYNTAX      Integer32
 		MAX-ACCESS  read-only
 		STATUS      current
 		DESCRIPTION "Time before the next key exchange (seconds)"
 		::=  { fnVpnDialupEntry  4 }
 
-	fnVpnDialupSrcBegin	OBJECT-TYPE
+	fnVpnDialupSrcBegin	OBJECT-TYPE	
 		SYNTAX      IpAddress
 		MAX-ACCESS  read-only
 		STATUS      current
 		DESCRIPTION "Remote subnet address"
 		::=  { fnVpnDialupEntry  5 }
 
-	fnVpnDialupSrcEnd	OBJECT-TYPE
+	fnVpnDialupSrcEnd	OBJECT-TYPE	
 		SYNTAX      IpAddress
 		MAX-ACCESS  read-only
 		STATUS      current
 		DESCRIPTION "Remote subnet mask"
 		::=  { fnVpnDialupEntry  6 }
 
-	fnVpnDialupDstAddr	OBJECT-TYPE
+	fnVpnDialupDstAddr	OBJECT-TYPE	
 		SYNTAX      IpAddress
 		MAX-ACCESS  read-only
 		STATUS      current
 		DESCRIPTION "Local subnet address"
 		::=  { fnVpnDialupEntry  7 }
 
---	fnVpnDialupDstMask	OBJECT-TYPE
+--	fnVpnDialupDstMask	OBJECT-TYPE	
 --		SYNTAX		IpAddress
 --		MAX-ACCESS	read-only
 --		STATUS		current
@@ -704,14 +704,14 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 	-- fnBridge
 
 	fnBridgeFgtFailure	OBJECT-TYPE
-		SYNTAX		DisplayString
+		SYNTAX		DisplayString 
 		MAX-ACCESS	read-only
 		STATUS		current
 		DESCRIPTION	"FortiGate failure detected by FortiBridge"
 		::= { fnBridge	1 }
 
 	--  fnIps
-
+	
 	fnIpsSigId		OBJECT-TYPE
 		SYNTAX		FnIndex
 		MAX-ACCESS	read-only
@@ -727,3 +727,4 @@ FORTINET-MIB-280 DEFINITIONS ::= BEGIN
 		::= { fnIps	2 }
 
 END
+

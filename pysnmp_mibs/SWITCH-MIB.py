@@ -1,0 +1,52 @@
+#
+# PySNMP MIB module SWITCH-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/allied-old/SWITCH-MIB
+# Produced by pysmi-1.1.12 at Mon Aug  4 17:31:00 2025
+# On host macmini.vegmond.io platform Darwin version 24.5.0 by user rob
+# Using Python version 3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]
+#
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32, Integer32, Gauge32, ModuleIdentity, TimeTicks, NotificationType, Counter32, Bits, IpAddress, iso, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32", "Integer32", "Gauge32", "ModuleIdentity", "TimeTicks", "NotificationType", "Counter32", "Bits", "IpAddress", "iso", "ObjectIdentity", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+pPortNumber, = mibBuilder.importSymbols("SWITCH-VLAN-MIB", "pPortNumber")
+switchProduct, = mibBuilder.importSymbols("TELESYN-ATI-TC", "switchProduct")
+switchProductMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1))
+switchProductMib.setRevisions(('1997-01-14 08:00', '1996-08-22 22:00',))
+if mibBuilder.loadTexts: switchProductMib.setLastUpdated('9701142000Z')
+if mibBuilder.loadTexts: switchProductMib.setOrganization('')
+uplinkSwitchChassisType = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("modelB", 1), ("modelB2", 2), ("modelCplus", 3), ("modelCminus", 4), ("modelBFx2", 5), ("modelFx", 6), ("modelFx2", 7), ("modelFxB2", 8), ("modelBminusFx2", 9), ("modelCfx", 10), ("modelCfxCminus", 11)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: uplinkSwitchChassisType.setStatus('current')
+switchModelType = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("uplinkSwitch", 1), ("switch", 2), ("unknown", 3)))).setMaxAccess("readonly")
+if mibBuilder.loadTexts: switchModelType.setStatus('current')
+portMirrorGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2))
+class PortMirrorStatus(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
+    namedValues = NamedValues(("on", 1), ("off", 2))
+
+portMirrorProbePort = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portMirrorProbePort.setStatus('current')
+portMirrorSrcEnable = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 2), PortMirrorStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portMirrorSrcEnable.setStatus('current')
+portMirrorDstEnable = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 3), PortMirrorStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portMirrorDstEnable.setStatus('current')
+portMirrorTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 4), )
+if mibBuilder.loadTexts: portMirrorTable.setStatus('current')
+portMirrorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 4, 1), ).setIndexNames((0, "SWITCH-VLAN-MIB", "pPortNumber"))
+if mibBuilder.loadTexts: portMirrorEntry.setStatus('current')
+portMirrorSrcUcastFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 4, 1, 1), PortMirrorStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portMirrorSrcUcastFrames.setStatus('current')
+portMirrorSrcBMCastFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 4, 1, 2), PortMirrorStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portMirrorSrcBMCastFrames.setStatus('current')
+portMirrorSrcDiscardedFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 4, 1, 3), PortMirrorStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portMirrorSrcDiscardedFrames.setStatus('current')
+portMirrorSrcMarkedFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 4, 1, 4), PortMirrorStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portMirrorSrcMarkedFrames.setStatus('current')
+portMirrorDstAllFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 4, 1, 5), PortMirrorStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portMirrorDstAllFrames.setStatus('current')
+portMirrorDstMarkedFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 9, 3, 1, 1, 2, 4, 1, 6), PortMirrorStatus()).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: portMirrorDstMarkedFrames.setStatus('current')
+mibBuilder.exportSymbols("SWITCH-MIB", switchModelType=switchModelType, PortMirrorStatus=PortMirrorStatus, portMirrorSrcMarkedFrames=portMirrorSrcMarkedFrames, uplinkSwitchChassisType=uplinkSwitchChassisType, portMirrorEntry=portMirrorEntry, portMirrorSrcBMCastFrames=portMirrorSrcBMCastFrames, portMirrorDstMarkedFrames=portMirrorDstMarkedFrames, portMirrorProbePort=portMirrorProbePort, portMirrorSrcUcastFrames=portMirrorSrcUcastFrames, portMirrorDstAllFrames=portMirrorDstAllFrames, portMirrorTable=portMirrorTable, PYSNMP_MODULE_ID=switchProductMib, portMirrorDstEnable=portMirrorDstEnable, switchProductMib=switchProductMib, portMirrorSrcEnable=portMirrorSrcEnable, portMirrorSrcDiscardedFrames=portMirrorSrcDiscardedFrames, portMirrorGroup=portMirrorGroup)

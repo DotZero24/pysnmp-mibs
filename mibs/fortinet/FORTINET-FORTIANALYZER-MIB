@@ -18,20 +18,20 @@ IMPORTS
 
 fnFortiAnalyzerMib MODULE-IDENTITY
     LAST-UPDATED "200909210000Z"
-    ORGANIZATION
+    ORGANIZATION 
         "Fortinet Technologies, Inc."
-    CONTACT-INFO
+    CONTACT-INFO 
         "
          Technical Support
          email: support@fortinet.com
          http://www.fortinet.com"
-    DESCRIPTION
+    DESCRIPTION 
         "MIB module for Fortinet FortiAnalyzer devices."
     REVISION    "200909210000Z"
-    DESCRIPTION
+    DESCRIPTION 
         "Fix syntax errors."
     REVISION    "200902050000Z"
-    DESCRIPTION
+    DESCRIPTION 
         "Initial version of FORTINET-FORTIANALYZER-MIB."
     ::= { fortinet 102 }
 
@@ -46,7 +46,7 @@ FaSessProto ::= TEXTUAL-CONVENTION
 
 FaRAIDStatusCode ::= TEXTUAL-CONVENTION
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Enumerated list of RAID status codes."
     SYNTAX      INTEGER { arrayOK(1), arrayDegraded(2), arrayInoperable(3),
 		    arrayRebuilding(4), arrayRebuildingStarted(5),
@@ -56,9 +56,9 @@ FaRAIDStatusCode ::= TEXTUAL-CONVENTION
 
 FaSysEventCode ::= TEXTUAL-CONVENTION
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Enumerated list of system events."
-    SYNTAX      INTEGER { systemHalt(1), systemReboot(2),
+    SYNTAX      INTEGER { systemHalt(1), systemReboot(2), 
                     upgradeConfig(3), systemUpgrade(4), logdiskFormat(5) }
 
 faTraps OBJECT IDENTIFIER
@@ -74,7 +74,7 @@ faSystemEvent OBJECT-TYPE
     SYNTAX      FaSysEventCode
     MAX-ACCESS  accessible-for-notify
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Type of system event that triggered notification."
     ::= { faTrapObject 1 }
 
@@ -82,7 +82,7 @@ faRAIDStatus OBJECT-TYPE
     SYNTAX      FaRAIDStatusCode
     MAX-ACCESS  accessible-for-notify
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "New RAID state associated with a RAID status change event."
     ::= { faTrapObject 2 }
 
@@ -90,15 +90,15 @@ faRAIDDevIndex OBJECT-TYPE
     SYNTAX      DisplayString (SIZE(0..32))
     MAX-ACCESS  accessible-for-notify
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Name/index of a RAID device relating to the event."
     ::= { faTrapObject 3 }
 
 faGenAlert OBJECT-TYPE
-    SYNTAX          DisplayString
+    SYNTAX          DisplayString 
     MAX-ACCESS      read-only
     STATUS          current
-    DESCRIPTION
+    DESCRIPTION     
         "Detail of defined event alert sent from FortiAnalyzer"
     ::= { faTrapObject  4 }
 
@@ -158,7 +158,7 @@ faIpSessTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF FaIpSessEntry
     MAX-ACCESS  not-accessible
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Information on the IP sessions active on the device"
     ::= { faInetProtoTables 1 }
 
@@ -166,7 +166,7 @@ faIpSessEntry OBJECT-TYPE
     SYNTAX      FaIpSessEntry
     MAX-ACCESS  not-accessible
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Information on a specific session, including source and destination"
     INDEX       { faIpSessIndex }
     ::= { faIpSessTable 1 }
@@ -185,7 +185,7 @@ faIpSessIndex OBJECT-TYPE
     SYNTAX      FnIndex
     MAX-ACCESS  not-accessible
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "An index value that uniquely identifies
          an IP session within the faIpSessTable"
     ::= { faIpSessEntry 1 }
@@ -194,7 +194,7 @@ faIpSessProto OBJECT-TYPE
     SYNTAX      FaSessProto
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "The protocol the session is using (IP, TCP, UDP, etc.)"
     ::= { faIpSessEntry 2 }
 
@@ -202,7 +202,7 @@ faIpSessFromAddr OBJECT-TYPE
     SYNTAX      IpAddress
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Source IP address (IPv4 only) of the session"
     ::= { faIpSessEntry 3 }
 
@@ -210,7 +210,7 @@ faIpSessFromPort OBJECT-TYPE
     SYNTAX      InetPortNumber
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Source port number (UDP and TCP only) of the session"
     ::= { faIpSessEntry 4 }
 
@@ -218,7 +218,7 @@ faIpSessToAddr OBJECT-TYPE
     SYNTAX      IpAddress
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Destination IP address (IPv4 only) of the session"
     ::= { faIpSessEntry 5 }
 
@@ -226,7 +226,7 @@ faIpSessToPort OBJECT-TYPE
     SYNTAX      InetPortNumber
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Destination Port number (UDP and TCP only) of the session"
     ::= { faIpSessEntry 6 }
 
@@ -234,7 +234,7 @@ faIpSessExp OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Number of seconds remaining before the session expires (if idle)"
     ::= { faIpSessEntry 7 }
 
@@ -248,7 +248,7 @@ faHwSensorCount OBJECT-TYPE
     SYNTAX      Integer32
     MAX-ACCESS  read-only
     STATUS      deprecated
-    DESCRIPTION
+    DESCRIPTION 
         "The number of entries in faHwSensorTable"
     ::= { faHwSensors 1 }
 
@@ -256,7 +256,7 @@ faHwSensorTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF FaHwSensorEntry
     MAX-ACCESS  not-accessible
     STATUS      deprecated
-    DESCRIPTION
+    DESCRIPTION 
         "A list of device specific hardware sensors and values. Because different devices have different hardware sensor capabilities, this table may or may not contain any values."
     ::= { faHwSensors 2 }
 
@@ -264,7 +264,7 @@ faHwSensorEntry OBJECT-TYPE
     SYNTAX      FaHwSensorEntry
     MAX-ACCESS  not-accessible
     STATUS      deprecated
-    DESCRIPTION
+    DESCRIPTION 
         "An entry containing the name, value, and alarm status of a given hardware sensor"
     INDEX       { faHwSensorEntIndex }
     ::= { faHwSensorTable 1 }
@@ -280,7 +280,7 @@ faHwSensorEntIndex OBJECT-TYPE
     SYNTAX      FnIndex
     MAX-ACCESS  not-accessible
     STATUS      deprecated
-    DESCRIPTION
+    DESCRIPTION 
         "A unique identifier within the faHwSensorTable"
     ::= { faHwSensorEntry 1 }
 
@@ -288,7 +288,7 @@ faHwSensorEntName OBJECT-TYPE
     SYNTAX      DisplayString
     MAX-ACCESS  read-only
     STATUS      deprecated
-    DESCRIPTION
+    DESCRIPTION 
         "A string identifying the sensor by name"
     ::= { faHwSensorEntry 2 }
 
@@ -296,7 +296,7 @@ faHwSensorEntValue OBJECT-TYPE
     SYNTAX      DisplayString
     MAX-ACCESS  read-only
     STATUS      deprecated
-    DESCRIPTION
+    DESCRIPTION 
         "A string representation of the value of the sensor. Because sensors can present data in different formats, string representation is most general format. Interpretation of the value (units of measure, for example) is dependent on the individual sensor."
     ::= { faHwSensorEntry 3 }
 
@@ -304,7 +304,7 @@ faHwSensorEntAlarmStatus OBJECT-TYPE
     SYNTAX      INTEGER { false(0), true(1) }
     MAX-ACCESS  read-only
     STATUS      deprecated
-    DESCRIPTION
+    DESCRIPTION 
         "If the sensor has an alarm threshold and has exceeded it, this will indicate its status. Not all sensors have alarms."
     ::= { faHwSensorEntry 4 }
 
@@ -317,7 +317,7 @@ fa300SysSerial OBJECT-TYPE
     SYNTAX      DisplayString (SIZE(0..32))
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Serial number of the device"
     ::= { fa300System 1 }
 
@@ -325,7 +325,7 @@ fa300SysVersion OBJECT-TYPE
     SYNTAX      DisplayString (SIZE(0..128))
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Firmware version of the device"
     ::= { fa300System 2 }
 
@@ -333,7 +333,7 @@ fa300SysCpuUsage OBJECT-TYPE
     SYNTAX      Gauge32 (0..100)
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Current CPU usage (percentage)"
     ::= { fa300System 3 }
 
@@ -341,7 +341,7 @@ fa300SysMemUsage OBJECT-TYPE
     SYNTAX      Gauge32 (0..100)
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Current memory utilization (percentage)"
     ::= { fa300System 4 }
 
@@ -349,7 +349,7 @@ fa300SysSesCount OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Number of active sessions on the device"
     ::= { fa300System 5 }
 
@@ -357,7 +357,7 @@ fa300SysDiskCapacity OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Total hard disk capacity (MB), if disk is present"
     ::= { fa300System 6 }
 
@@ -365,7 +365,7 @@ fa300SysDiskUsage OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Current hard disk usage (MB), if disk is present"
     ::= { fa300System 7 }
 
@@ -373,7 +373,7 @@ fa300SysMemCapacity OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Total physical memory (RAM) installed (KB)"
     ::= { fa300System 8 }
 
@@ -386,21 +386,21 @@ faMIBConformance OBJECT IDENTIFIER
 faTrapSystemEvent NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, faSystemEvent }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "A system event occured. The specific type of event is indecated by the faSystemEvent parameter."
     ::= { faTrapPrefix 1001 }
 
 faTrapRAIDStatusChange NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, faRAIDStatus, faRAIDDevIndex }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Trap is sent when there is a change in the status of the RAID array, if present."
     ::= { faTrapPrefix 1002 }
 
 faTrapGenAlert NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, fnGenTrapMsg }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Trap sent when FortiAnalyzer event parameter
          exceeds configured limit. Event description
          included in trap."
@@ -441,10 +441,10 @@ faSystemComplianceGroup OBJECT-GROUP
 
 
 faTrapsComplianceGroup NOTIFICATION-GROUP
-    NOTIFICATIONS { faTrapSystemEvent, faTrapRAIDStatusChange,
+    NOTIFICATIONS { faTrapSystemEvent, faTrapRAIDStatusChange, 
                   faTrapGenAlert, faTrapLogRateThreshold, faTrapDataRateThreshold }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Event notifications"
     ::= { faMIBConformance 2 }
 
@@ -485,7 +485,7 @@ faHwSensorComplianceGroup OBJECT-GROUP
 faNotificationObjectsComplianceGroup OBJECT-GROUP
     OBJECTS     { faSystemEvent, faRAIDStatus, faRAIDDevIndex }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Object identifiers used in notifications"
     ::= { faMIBConformance 6 }
 
@@ -494,7 +494,7 @@ faNotificationObjectsComplianceGroup OBJECT-GROUP
 
 faMIBCompliance MODULE-COMPLIANCE
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "The compliance statement for the application MIB."
 
     MODULE      -- this module
@@ -503,18 +503,18 @@ faMIBCompliance MODULE-COMPLIANCE
     DESCRIPTION "System related instrumentation"
 
     GROUP faSessionComplianceGroup
-    DESCRIPTION
+    DESCRIPTION 
 	"Session related instrumentation"
 
     GROUP faMiscComplianceGroup
     DESCRIPTION "Miscellanious instrumentation"
 
     GROUP   faTrapsComplianceGroup
-    DESCRIPTION
+    DESCRIPTION   
 	"Traps are optional. Not all models support all traps. Consult product literature to see which traps are supported."
 
     GROUP   faNotificationObjectsComplianceGroup
-    DESCRIPTION
+    DESCRIPTION   
     	"Object identifiers used in notifications. Objects are required if their containing trap is implemented."
 
     ::= { faMIBConformance 100 }
@@ -523,13 +523,13 @@ faMIBCompliance MODULE-COMPLIANCE
 
 faObsoleteMIBCompliance MODULE-COMPLIANCE
     STATUS      deprecated
-    DESCRIPTION
+    DESCRIPTION 
         "The compliance statement of deprecated objects for the application MIB, they may still be used by older models."
 
     MODULE      -- this module
 
         GROUP   faHwSensorComplianceGroup
-        DESCRIPTION
+        DESCRIPTION   
               "Traps are optional. Not all models support all traps. Consult product literature to see which traps are supported."
 
     ::= { faMIBConformance 101 }

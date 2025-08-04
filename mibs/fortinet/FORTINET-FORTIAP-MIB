@@ -743,7 +743,7 @@ FapRadioEntry ::= SEQUENCE {
 
 fapRadioIndex OBJECT-TYPE
         SYNTAX      Integer32 (0..2)
-        MAX-ACCESS  not-accessible
+        MAX-ACCESS  not-accessible 
         STATUS      current
         DESCRIPTION
             "Radio index number."
@@ -1138,7 +1138,7 @@ FapVapEntry ::= SEQUENCE {
 
 fapVapRadioId OBJECT-TYPE
     SYNTAX      Integer32 (0..2)
-    MAX-ACCESS  not-accessible
+    MAX-ACCESS  not-accessible 
     STATUS      current
     DESCRIPTION
         "Index number of the radio."
@@ -1146,7 +1146,7 @@ fapVapRadioId OBJECT-TYPE
 
 fapVapWlanId OBJECT-TYPE
     SYNTAX      Integer32 (0..15)
-    MAX-ACCESS  not-accessible
+    MAX-ACCESS  not-accessible 
     STATUS      current
     DESCRIPTION
         "Index number of the WLAN."
@@ -1651,7 +1651,7 @@ FapStationEntry ::= SEQUENCE {
 
 fapStaRadioId OBJECT-TYPE
     SYNTAX      Integer32 (0..2)
-    MAX-ACCESS  not-accessible
+    MAX-ACCESS  not-accessible 
     STATUS      current
     DESCRIPTION
         "Index number of the radio."
@@ -1667,7 +1667,7 @@ fapStaWlanId OBJECT-TYPE
 
 fapStaMacAddr OBJECT-TYPE
     SYNTAX      PhysAddress  (SIZE(6|8))
-    MAX-ACCESS  not-accessible
+    MAX-ACCESS  not-accessible 
     STATUS      current
     DESCRIPTION
         "MAC address of the connected station."
@@ -1751,7 +1751,7 @@ FapWagEntry ::= SEQUENCE {
 
 fapWagTunType OBJECT-TYPE
     SYNTAX      INTEGER { l2tp(1), gre(2) }
-    MAX-ACCESS  not-accessible
+    MAX-ACCESS  not-accessible 
     STATUS      current
     DESCRIPTION
         "The tunnel type of the WAG. It's one of indexes for the WAG entry."
@@ -1930,8 +1930,8 @@ fapTrapObjectGroup OBJECT-GROUP
     ::= { fapMibConformance 2 }
 
 fapSysCommGroup OBJECT-GROUP
-    OBJECTS { fapVersion, fapSerialNum, fapHostName,
-              fapRegionCode, fapBaseMacAddr, fapBiosVer,
+    OBJECTS { fapVersion, fapSerialNum, fapHostName, 
+              fapRegionCode, fapBaseMacAddr, fapBiosVer, 
               fapBiosDataVer, fapSysPartNum}
     STATUS      current
     DESCRIPTION
@@ -1994,7 +1994,7 @@ fapVapGroup OBJECT-GROUP
               fapVapAtfWeight, fapVapRadServer, fapVapRadAcctServer, fapVapRadAcctInterimIntv,
               fapVapRadCoA, fapVapStaInfoCount, fapVapStaInfoMax, fapVapRateLimitUL,
               fapVapRateLimitDL, fapVapRateLimitUlUser, fapVapRateLimitDLUser, fapVapRateLimitBurst,
-              fapVapPrimaryWag, fapVapSecondaryWag, fapVapCurrentWag, fapVapTunEchoIntv,
+              fapVapPrimaryWag, fapVapSecondaryWag, fapVapCurrentWag, fapVapTunEchoIntv, 
               fapVapTunFallbackTimeout }
     STATUS      current
     DESCRIPTION
@@ -2041,23 +2041,23 @@ fapMibCompliance MODULE-COMPLIANCE
         DESCRIPTION
               "This group is mandatory for all Fortinet network appliances
               supporting this MIB."
-        GROUP  fapWtpStatusGroup
+        GROUP  fapWtpStatusGroup 
         DESCRIPTION
               "This group is mandatory for all Fortinet network appliances
               supporting this MIB."
-        GROUP  fapRadioGroup
+        GROUP  fapRadioGroup 
         DESCRIPTION
               "This group is mandatory for all Fortinet network appliances
               supporting this MIB."
-        GROUP  fapVapGroup
+        GROUP  fapVapGroup 
         DESCRIPTION
               "This group is mandatory for all Fortinet network appliances
               supporting this MIB."
-        GROUP  fapWagGroup
+        GROUP  fapWagGroup 
         DESCRIPTION
               "This group is mandatory for all Fortinet network appliances
               supporting this MIB."
-        GROUP  fapStationGroup
+        GROUP  fapStationGroup 
         DESCRIPTION
               "This group is mandatory for all Fortinet network appliances
               supporting this MIB."

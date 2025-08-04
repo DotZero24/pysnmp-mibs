@@ -25,9 +25,9 @@ IMPORTS
 
 fnFortiWebMib MODULE-IDENTITY
     LAST-UPDATED "202007020000Z"
-    ORGANIZATION
+    ORGANIZATION 
         "Fortinet Technologies, Inc."
-    CONTACT-INFO
+    CONTACT-INFO 
         "
          Technical Support
          email: support@fortinet.com
@@ -86,45 +86,45 @@ fnFortiWebMib MODULE-IDENTITY
     DESCRIPTION
 	"add  fwbPAYG."
     REVISION    "201610250000Z"
-    DESCRIPTION
+    DESCRIPTION 
 	"add  fwb2000E."
     REVISION    "201609130000Z"
-    DESCRIPTION
+    DESCRIPTION 
         "add fwb600D."
     REVISION    "201607010000Z"
-    DESCRIPTION
+    DESCRIPTION 
         "fix syntax error"
     REVISION    "201512170000Z"
-    DESCRIPTION
+    DESCRIPTION 
         "add  fwb3010E."
     REVISION    "201512160000Z"
-    DESCRIPTION
+    DESCRIPTION 
         "add  fwb400D."
     REVISION    "201512030000Z"
-    DESCRIPTION
+    DESCRIPTION 
         "add  fwbAZURE."
     REVISION    "201510200000Z"
-    DESCRIPTION
+    DESCRIPTION 
         "Modify model name from fwzxxx to fwbxxx."
     REVISION    "201507130000Z"
-    DESCRIPTION
+    DESCRIPTION 
         "Adjust MIB tree."
     REVISION    "201003220000Z"
-    DESCRIPTION
+    DESCRIPTION 
         "Initial version of FORTINET-FORTIWEB-MIB."
     ::= { fortinet 107 }
 
 FwOpMode ::= TEXTUAL-CONVENTION
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "enumerated type for device operation modes"
     SYNTAX      INTEGER { inline(1), offline(2), transparent(3), wccp(4), inspection(5)}
 
 FwHaMode ::= TEXTUAL-CONVENTION
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "enumerated type for HA cluster modes"
-    SYNTAX      INTEGER { standalone(1), master(2),
+    SYNTAX      INTEGER { standalone(1), master(2), 
                     slave(3) }
 
 --
@@ -251,7 +251,7 @@ fwSystemCPU OBJECT IDENTIFIER
     ::= { fwSystem 2 }
 
 cPUNumber OBJECT-TYPE
-    SYNTAX  Integer32
+    SYNTAX  Integer32 
     MAX-ACCESS  read-only
     STATUS  current
     DESCRIPTION
@@ -280,7 +280,7 @@ CPUEntry ::=
         cPUIndex
             Integer32 ,
         cPUusage
-            Integer32
+            Integer32 
     }
 
 cPUIndex OBJECT-TYPE
@@ -288,12 +288,12 @@ cPUIndex OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
-            "A unique value for each CPU."
+            "A unique value for each CPU." 
     ::= { cPUEntry 1 }
 
 
 cPUusage OBJECT-TYPE
-    SYNTAX  Integer32
+    SYNTAX  Integer32 
     MAX-ACCESS  read-only
     STATUS  current
     DESCRIPTION
@@ -304,7 +304,7 @@ fwSysModel OBJECT-TYPE
     SYNTAX      DisplayString (SIZE(0..128))
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "System Model of the device"
     ::= { fwSystemInfo 1 }
 
@@ -312,7 +312,7 @@ fwSysVersion OBJECT-TYPE
     SYNTAX      DisplayString (SIZE(0..128))
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Firmware version of the device"
     ::= { fwSystemInfo 2 }
 
@@ -320,7 +320,7 @@ fwSysHaMode OBJECT-TYPE
     SYNTAX      FwHaMode
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "High-availability mode HA mode(Standalone, Master, Slave)"
     ::= { fwSystemInfo 3 }
 
@@ -328,7 +328,7 @@ fwSysOpMode OBJECT-TYPE
     SYNTAX      FwOpMode
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Operation mode of the device (Inline or Offlinet or Transparent or WCCP)"
     ::= { fwSystemInfo 4 }
 
@@ -336,7 +336,7 @@ fwSysCpuUsage OBJECT-TYPE
     SYNTAX      Gauge32 (0..100)
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Current CPU usage (percentage)"
     ::= { fwSystemInfo 5 }
 
@@ -344,7 +344,7 @@ fwSysCpuFreq OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Current CPU frequency (MHz)"
     ::= { fwSystemInfo 6 }
 
@@ -352,7 +352,7 @@ fwSysMemUsage OBJECT-TYPE
     SYNTAX      Gauge32 (0..100)
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Current memory utilization (percentage)"
     ::= { fwSystemInfo 7 }
 
@@ -360,7 +360,7 @@ fwSysMemCapacity OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Total physical memory (RAM) installed (MB)"
     ::= { fwSystemInfo 8 }
 
@@ -368,7 +368,7 @@ fwSysDiskUsage OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Current log disk usage rate, if log disk is present"
     ::= { fwSystemInfo 9 }
 
@@ -376,7 +376,7 @@ fwSysDiskCapacity OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Total log disk capacity (MB), if log disk is present"
     ::= { fwSystemInfo 10 }
 
@@ -391,7 +391,7 @@ fwProxyNumber OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Policy number"
     ::= { fwProxy 1 }
 
@@ -399,7 +399,7 @@ fwPServerNumber OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Physical server number"
     ::= { fwProxy 2 }
 
@@ -407,7 +407,7 @@ fwVServerNumber OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Virtual server number"
     ::= { fwProxy 3 }
 
@@ -415,7 +415,7 @@ fwMonitorNumber OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Monitor number"
     ::= { fwProxy 4 }
 
@@ -423,7 +423,7 @@ fwServiceNumber OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Service number"
     ::= { fwProxy 5 }
 
@@ -431,7 +431,7 @@ fwPortSvrNumber OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Protection server number"
     ::= { fwProxy 6 }
 
@@ -439,7 +439,7 @@ fwTotalConnectNumber OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Total connnect number"
     ::= { fwProxy 7 }
 
@@ -447,7 +447,7 @@ fwTotalConnectNumberPerSecond OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Total connect number/Second"
     ::= { fwProxy 8 }
 
@@ -467,7 +467,7 @@ fwWAFInputRuleNumber OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF input rule number"
     ::= { fwWAFProtection 1 }
 
@@ -475,7 +475,7 @@ fwWAFParameterNumber OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF paramater validation rules number"
     ::= { fwWAFProtection 2 }
 
@@ -483,7 +483,7 @@ fwWAFParameterNumber OBJECT-TYPE
 --    SYNTAX      Counter32
 --    MAX-ACCESS  read-only
 --    STATUS      current
---    DESCRIPTION
+--    DESCRIPTION 
 --        "WAF page access rule number"
 --    ::= { fwWAFProtection 3 }
 
@@ -491,7 +491,7 @@ fwWAFSvrPortNumber OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF server protection number"
     ::= { fwWAFProtection 3 }
 
@@ -499,7 +499,7 @@ fwWAFSvrPortNumber OBJECT-TYPE
 --    SYNTAX      Counter32
 --    MAX-ACCESS  read-only
 --    STATUS      current
---    DESCRIPTION
+--    DESCRIPTION 
 --        "WAF start page number"
 --    ::= { fwWAFProtection 5 }
 
@@ -507,7 +507,7 @@ fwWAFSvrPortNumber OBJECT-TYPE
 --    SYNTAX      Counter32
 --    MAX-ACCESS  read-only
 --    STATUS      current
---    DESCRIPTION
+--    DESCRIPTION 
 --        "WAF black list number"
 --    ::= { fwWAFProtection 6 }
 
@@ -515,7 +515,7 @@ fwWAFSvrPortNumber OBJECT-TYPE
 --    SYNTAX      Counter32
 --    MAX-ACCESS  read-only
 --    STATUS      current
---    DESCRIPTION
+--    DESCRIPTION 
 --        "WAF white list number"
 --    ::= { fwWAFProtection 7 }
 
@@ -523,7 +523,7 @@ fwWAFProfileNumber  OBJECT-TYPE
     SYNTAX      Gauge32
     MAX-ACCESS  read-only
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF profile number"
     ::= { fwWAFProtection 4 }
 
@@ -643,56 +643,56 @@ fnWafURL OBJECT-TYPE
 fwTrapHaHBFail NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "HA Master detects Slave is offline"
     ::= { fwTrapPrefix 1 }
 
 fwTrapModeChange NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "System run mode is changed(inline/offline/transparent change)"
     ::= { fwTrapPrefix 2 }
 
 fwTrapPolicyStart NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Policy is started"
     ::= { fwTrapPrefix 3 }
 
 fwTrapPolicyStop NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Policy is stopped"
     ::= { fwTrapPrefix 4 }
 
 fwTrapPServerFailed NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Physical server is drop-line"
     ::= { fwTrapPrefix 5 }
 
 fwTrapHAStatusChange NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "HA Device status change slave->mater"
     ::= { fwTrapPrefix 6 }
 
 fwTrapHAMemberJoin NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "HA cluster have member join"
     ::= { fwTrapPrefix 7 }
 
 fwTrapHAMemberLeave NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "HA cluster have member leave"
     ::= { fwTrapPrefix 8 }
 
@@ -700,151 +700,151 @@ fwTrapHAMemberLeave NOTIFICATION-TYPE
 fwTrapXMLIntrusionAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "XML Intrusion trap"
     ::= { fwTrapPrefix 10 }
 
 fwTrapXMLSchemaAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "XML Schema trap"
     ::= { fwTrapPrefix 11 }
 
 fwTrapXMLFilterAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "XML filterRule trap"
     ::= { fwTrapPrefix 12 }
 
 fwTrapXMLSigEncAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "XML Signature/Encrypte trap"
     ::= { fwTrapPrefix 13 }
 
 fwTrapXMLWSDLAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "XML WSDL check trap"
     ::= { fwTrapPrefix 14 }
 
 fwTrapXMLSqlAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "XML SQL injection trap"
     ::= { fwTrapPrefix 15 }
 
 fwTrapWAFAMethodAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF Allow method trap"
     ::= { fwTrapPrefix 30 }
 
 fwTrapWAFXSSAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF XSS trap"
     ::= { fwTrapPrefix 31 }
 
 fwTrapWAFSqlAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF SQL injection trap"
     ::= { fwTrapPrefix 32 }
 
 fwTrapWAFExploitAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF Common Exploits trap"
     ::= { fwTrapPrefix 33 }
 
 fwTrapWAFDisclosureAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF Information Disclosure trap"
     ::= { fwTrapPrefix 34 }
 
 fwTrapWAFAccessAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF Access page rule trap"
     ::= { fwTrapPrefix 35 }
 
 fwTrapWAFSPageAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF Start page rule trap"
     ::= { fwTrapPrefix 36 }
 
 fwTrapWAFPValidAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF Parameter validation rule trap"
     ::= { fwTrapPrefix 37 }
 
 fwTrapWAFBListAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF Black list trap"
     ::= { fwTrapPrefix 38 }
 
 fwTrapWAFBLoginAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF Brute force login trap"
     ::= { fwTrapPrefix 39 }
 
 fwTrapWAFRobotAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF Robot control trap"
     ::= { fwTrapPrefix 40 }
 
 fwTrapWAFHideFieldAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF hide field  trap"
     ::= { fwTrapPrefix 41 }
 
 fwTrapWAFUrlAccessAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF url access trap"
     ::= { fwTrapPrefix 42 }
 fwTrapWAFBadRobotAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF Bad Robot control trap"
     ::= { fwTrapPrefix 43 }
 fwTrapWAFSignatureAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF signature attack trap"
     ::= { fwTrapPrefix 44 }
 fwTrapWAFWListAttack NOTIFICATION-TYPE
     OBJECTS     { fnSysSerial, sysName,fnWafInfoDetail }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "WAF white list trap"
     ::= { fwTrapPrefix 45 }
 
@@ -859,23 +859,23 @@ fwMibConformance OBJECT IDENTIFIER
     ::= { fnFortiWebMib 100 }
 
 fwTrapGroup NOTIFICATION-GROUP
-    NOTIFICATIONS { fwTrapHaHBFail, fwTrapModeChange,
+    NOTIFICATIONS { fwTrapHaHBFail, fwTrapModeChange,	
                     fwTrapPolicyStart, fwTrapPolicyStop,
 		    fwTrapPServerFailed, fwTrapHAStatusChange,
                     fwTrapHAMemberJoin, fwTrapHAMemberLeave,
-                    fwTrapXMLIntrusionAttack, fwTrapXMLSchemaAttack,
-                    fwTrapXMLFilterAttack,fwTrapXMLSigEncAttack,
-                    fwTrapXMLWSDLAttack, fwTrapXMLSqlAttack,
-                    fwTrapWAFAMethodAttack, fwTrapWAFXSSAttack,
-                    fwTrapWAFSqlAttack, fwTrapWAFExploitAttack,
-                    fwTrapWAFDisclosureAttack, fwTrapWAFAccessAttack,
-                    fwTrapWAFSPageAttack, fwTrapWAFPValidAttack,
+                    fwTrapXMLIntrusionAttack, fwTrapXMLSchemaAttack, 
+                    fwTrapXMLFilterAttack,fwTrapXMLSigEncAttack, 
+                    fwTrapXMLWSDLAttack, fwTrapXMLSqlAttack, 
+                    fwTrapWAFAMethodAttack, fwTrapWAFXSSAttack, 
+                    fwTrapWAFSqlAttack, fwTrapWAFExploitAttack, 
+                    fwTrapWAFDisclosureAttack, fwTrapWAFAccessAttack, 
+                    fwTrapWAFSPageAttack, fwTrapWAFPValidAttack, 
                     fwTrapWAFBListAttack, fwTrapWAFBLoginAttack,
 		    fwTrapWAFRobotAttack, fwTrapWAFHideFieldAttack,
 		    fwTrapWAFUrlAccessAttack, fwTrapWAFBadRobotAttack,
 		    fwTrapWAFSignatureAttack, fwTrapWAFWListAttack }
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "Traps are intended for use."
     ::= { fwMibConformance 1 }
 
@@ -912,25 +912,25 @@ fwWAFProtectionGroup OBJECT-GROUP
 
 fwMibCompliance MODULE-COMPLIANCE
     STATUS      current
-    DESCRIPTION
+    DESCRIPTION 
         "The compliance statement for the application MIB."
 
     MODULE      -- this module
 
         GROUP   fwTrapGroup
-        DESCRIPTION
+        DESCRIPTION   
               "Traps are optional. Not all models support all traps. Consult product literature to see which traps are supported."
 
         GROUP   fwSystemObjectGroup
-        DESCRIPTION
+        DESCRIPTION   
               "Model and feature specific."
 
         GROUP   fwProxyObjectGroup
-        DESCRIPTION
+        DESCRIPTION   
               "Model and feature specific."
 
         GROUP   fwWAFProtectionGroup
-        DESCRIPTION
+        DESCRIPTION   
               "Model and feature specific."
 
     ::= { fwMibConformance 100 }
